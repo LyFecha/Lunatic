@@ -2,9 +2,11 @@ import { CONSTANTES } from '../../store-tools';
 import { openDb, idbBulkInsert } from '../../idb-tools';
 import MESSAGES from './store-messages';
 import prepareEntities from './prepare-entities';
+import validateStoreInfo from './validate-store-info';
 
 async function append(storeInfo, version, entities, log = () => null) {
 	try {
+		validateStoreInfo(storeInfo);
 		const { name, stopWords, fields } = storeInfo;
 		const prepared = prepareEntities(entities, { fields, stopWords }, log);
 		const db = await openDb(name, version);

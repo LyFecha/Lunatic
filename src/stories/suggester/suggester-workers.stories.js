@@ -66,7 +66,7 @@ const bailleursSociaux = {
 };
 
 const infoNaf = {
-	name: 'naf-rev2',
+	// name: 'naf-rev2',
 	fields: [
 		{
 			name: 'label',
